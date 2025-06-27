@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos Interactivos: Fiesta de los Tundunchil</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f5f3;
+      color: #333;
+    }
+    header {
+      background: #3b6e5e;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .juego {
+      background: #fff;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .juego h2 {
+      margin-top: 0;
+      color: #2c4d42;
+    }
+    .boton-jugar {
+      margin-top: 1rem;
+      background: #3b6e5e;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .boton-jugar:hover {
+      background: #2d554a;
+    }
+    .pregunta {
+      margin-bottom: 1rem;
+    }
+    .respuesta {
+      margin: 0.5rem 0;
+      display: block;
+    }
+    .retro {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Juegos Interactivos sobre los Tundunchil</h1>
+    <p>Explora, juega y aprende sobre el patrimonio cultural Cañari</p>
+  </header>
+
+  <main>
+    <section class="juego">
+      <h2>🎭 Diseña tu Wawa Danza (Educación Artística)</h2>
+      <p>Arrastra los elementos del vestuario tradicional en tu cuaderno o dibujo. Luego responde:</p>
+      <div class="pregunta">
+        <strong>¿Qué instrumento toca el Mama Danza?</strong><br>
+        <input type="radio" name="q1" class="respuesta" value="incorrecto"> Cascabel<br>
+        <input type="radio" name="q1" class="respuesta" value="correcto"> Bombo y Pinkullu<br>
+        <input type="radio" name="q1" class="respuesta" value="incorrecto"> Chumpi<br>
+        <div id="retro1" class="retro"></div>
+      </div>
+      <div class="pregunta">
+        <strong>¿Cuál es la función del tinkullpa?</strong><br>
+        <input type="radio" name="q2" class="respuesta" value="correcto"> Emitir sonido con los movimientos<br>
+        <input type="radio" name="q2" class="respuesta" value="incorrecto"> Servir comida<br>
+        <input type="radio" name="q2" class="respuesta" value="incorrecto"> Decorar el altar<br>
+        <div id="retro2" class="retro"></div>
+      </div>
+      <button class="boton-jugar" onclick="evaluarJuego1()">Evaluar</button>
+      <button class="boton-jugar" onclick="location.reload()">Reiniciar</button>
+    </section>
+
+    <section class="juego">
+      <h2>🧭 Ruta del Tundunchil (Ciencias Sociales)</h2>
+      <p>Recorre la ruta y contesta:</p>
+      <div class="pregunta">
+        <strong>¿Qué es el ayñi en la cultura cañari?</strong><br>
+        <input type="radio" name="q3" class="respuesta" value="incorrecto"> Un baile ancestral<br>
+        <input type="radio" name="q3" class="respuesta" value="correcto"> Principio de ayuda mutua<br>
+        <input type="radio" name="q3" class="respuesta" value="incorrecto"> Un tambor antiguo<br>
+        <div id="retro3" class="retro"></div>
+      </div>
+      <div class="pregunta">
+        <strong>¿Cuál es la fiesta con mayor presencia del Tundunchil?</strong><br>
+        <input type="radio" name="q4" class="respuesta" value="correcto"> Inti Raymi - Corpus Christi<br>
+        <input type="radio" name="q4" class="respuesta" value="incorrecto"> Día de los Difuntos<br>
+        <input type="radio" name="q4" class="respuesta" value="incorrecto"> Carnaval<br>
+        <div id="retro4" class="retro"></div>
+      </div>
+      <button class="boton-jugar" onclick="evaluarJuego2()">Evaluar</button>
+      <button class="boton-jugar" onclick="location.reload()">Reiniciar</button>
+    </section>
+
+    <section class="juego">
+      <h2>✍️ Palabras que Danzan (Lengua y Literatura)</h2>
+      <p>Encuentra estas palabras en una sopa de letras (escríbela en papel o crea en Educaplay): <strong>Allpamama, Ayñi, Pinkullu, Inti, Tauna, Chumpi</strong>. Luego responde:</p>
+      <div class="pregunta">
+        <strong>¿Qué significa Allpamama?</strong><br>
+        <input type="radio" name="q5" class="respuesta" value="incorrecto"> Dios del Sol<br>
+        <input type="radio" name="q5" class="respuesta" value="correcto"> Madre Tierra<br>
+        <input type="radio" name="q5" class="respuesta" value="incorrecto"> Fiesta de los muertos<br>
+        <div id="retro5" class="retro"></div>
+      </div>
+      <div class="pregunta">
+        <strong>¿Qué idioma reemplazó al cañari original?</strong><br>
+        <input type="radio" name="q6" class="respuesta" value="correcto"> Kichwa<br>
+        <input type="radio" name="q6" class="respuesta" value="incorrecto"> Español<br>
+        <input type="radio" name="q6" class="respuesta" value="incorrecto"> Latín<br>
+        <div id="retro6" class="retro"></div>
+      </div>
+      <button class="boton-jugar" onclick="evaluarJuego3()">Evaluar</button>
+      <button class="boton-jugar" onclick="location.reload()">Reiniciar</button>
+    </section>
+  </main>
+
+  <script>
+    function evaluar(pregunta, retroId) {
+      const opciones = document.getElementsByName(pregunta);
+      for (const opcion of opciones) {
+        if (opcion.checked) {
+          document.getElementById(retroId).innerText = opcion.value === "correcto" ? "✅ ¡Correcto!" : "❌ Incorrecto. Intenta de nuevo.";
+          break;
+        }
+      }
+    }
+
+    function evaluarJuego1() {
+      evaluar("q1", "retro1");
+      evaluar("q2", "retro2");
+    }
+    function evaluarJuego2() {
+      evaluar("q3", "retro3");
+      evaluar("q4", "retro4");
+    }
+    function evaluarJuego3() {
+      evaluar("q5", "retro5");
+      evaluar("q6", "retro6");
+    }
+  </script>
+</body>
+</html>
